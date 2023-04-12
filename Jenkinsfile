@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    }
+    environment {
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+  }
+
     stages {
         stage('Checkout') {
             steps {
@@ -9,12 +14,17 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh 'docker build -t  patinya14/jenkins-0.1:latest .'
             }
         }
-        stage('Test') {
+        stage('Login') {
             steps {
-                echo 'Testing..'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
+        stage('Push') {
+            steps {
+                sh 'docker push patinya14/react-0.1'
             }
         }
         stage('Deploy') {
