@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'docker build -t  patinya14/jenkins-0.1:latest .'
+                sh 'docker build -t  patinya14/react-0.1 .'
             }
         }
         stage('Login') {
