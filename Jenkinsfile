@@ -14,11 +14,13 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'docker build -t  patinya14/react-0.1 .'
+                sh 'docker image ls'
             }
         }
         stage('Login') {
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                echo 'success login'
             }
         }
         stage('Push') {
