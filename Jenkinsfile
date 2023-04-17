@@ -35,7 +35,7 @@ pipeline {
         }
         stage('remove image') {
             steps {
-                sh 'for i in $(docker image ls | grep "none" | awk '{print$3}' | grep -i "patinya14/react-0.1" ); do docker rmi $i; done'
+                sh 'docker ls'
             }
         }
     }
