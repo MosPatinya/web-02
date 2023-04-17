@@ -9,7 +9,7 @@ function App() {
       </div>
       <div className='container-fr'>
         <div className='front'>
-          <h1>Hello word !!</h1>
+          <h1>crossmoss.com !!</h1>
         </div>
       </div>
     </div>
