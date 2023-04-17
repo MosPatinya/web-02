@@ -33,10 +33,5 @@ pipeline {
                 sh 'docker compose up -d'
             }
         }
-        stage('remove image') {
-            steps {
-                sh 'docker ls'
-            }
-        }
     }
 }
